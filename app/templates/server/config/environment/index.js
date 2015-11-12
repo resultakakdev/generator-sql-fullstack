@@ -46,8 +46,8 @@ var all = {
 
   sql: {
     host: 'localhost',
-    dialect: 'postgres',
-    protocol: 'postgres',
+    dialect: <% if(filters.pgsql){ %>'postgres'<% } %><% if(filters.mssql){ %>'mssql'<% } %><% if(filters.mysql){ %>'mysql'<% } %><% if(filters.mariasql){ %>'mariadb' <% } %><% if(filters.sqlite){ %>'sqlite'<% } %>,
+    protocol:<% if(filters.pgsql){ %>'postgres'<% } %><% if(filters.mssql){ %>'mssql'<% } %><% if(filters.mysql){ %>'mysql'<% } %><% if(filters.mariasql){ %>'mariadb' <% } %><% if(filters.sqlite)  { %>'sqlite'<% } %>,
     pool: {
       max: 5,
       min: 0,
