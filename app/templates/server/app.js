@@ -10,6 +10,8 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var express = require('express');
 var config = require('./config/environment');
 
+if (config.seedDB) { require('./config/seed'); }
+
 // Setup server
 var app = express();
 var server = require('http').createServer(app);<% if (filters.socketio) { %>

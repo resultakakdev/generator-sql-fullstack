@@ -3,6 +3,10 @@
 var crypto = require('crypto');<% if(filters.oauth) { %>
 var authTypes = ['github', 'twitter', 'facebook', 'google'];<% } %>
 
+var validatePresenceOf = function(value) {
+  return value && value.length;
+};
+
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define('User', {
     _id     : {
@@ -20,15 +24,16 @@ module.exports = function(sequelize, DataTypes) {
         notEmpty: true
       }
     },
+    provider: { type: DataTypes.STRING, defaultValue: 'local' },
     salt: { type: DataTypes.STRING }<% if (filters.oauth) { %>,<% if (filters.facebookAuth) { %>
-    facebook: {},<% } %><% if (filters.twitterAuth) { %>
-    twitter : {},<% } %><% if (filters.googleAuth) { %>
-    google  : {},<% } %>
-    github  : {} <% } %>
+    facebook: { type: DataTypes.TEXT },<% } %><% if (filters.twitterAuth) { %>
+    twitter: { type: DataTypes.TEXT },<% } %><% if (filters.googleAuth) { %>
+    google: { type: DataTypes.TEXT },<% } %>
+    github: { type: DataTypes.TEXT }<% } %>
   }, {
     classMethods: {
       associate: function(models) {
-        User.hasMany(models.Thing)
+        User.hasMany(models.Thing);
       }
     },
     /**

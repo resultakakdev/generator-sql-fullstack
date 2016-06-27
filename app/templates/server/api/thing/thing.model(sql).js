@@ -1,21 +1,17 @@
 'use strict';
 
 module.exports = function(sequelize, DataTypes) {
-  var Thing = sequelize.define("Thing", {
-    title: DataTypes.STRING,
+  var Thing = sequelize.define('Thing', {
+    _id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    name: DataTypes.STRING,
     info: DataTypes.STRING,
     active: DataTypes.BOOLEAN,
   });
-
-  Thing
-    .sync({force: true})
-    .then(function (){
-      return Thing.create({
-        title: 'title',
-        info: 'info',
-        active: true
-      });
-    });
 
   return Thing;
 };

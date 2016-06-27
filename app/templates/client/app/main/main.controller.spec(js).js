@@ -1,7 +1,6 @@
 'use strict';
 
 describe('Controller: MainCtrl', function () {
-
   // load the controller's module
   beforeEach(module('<%= scriptAppName %>'));<% if(filters.socketio) {%>
   beforeEach(module('socketMock'));<% } %>

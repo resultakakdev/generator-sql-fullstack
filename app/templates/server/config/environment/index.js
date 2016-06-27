@@ -25,7 +25,7 @@ var all = {
   ip: process.env.IP || 'localhost',
 
   // Should we populate the DB with sample data?
-  seedDB: false,
+  seedDB: true,
 
   // Secret for session, you will want to change this and make it an environment variable
   secrets: {
@@ -47,12 +47,15 @@ var all = {
   sql: {
     host: 'localhost',
     dialect: <% if(filters.pgsql){ %>'postgres'<% } %><% if(filters.mssql){ %>'mssql'<% } %><% if(filters.mysql){ %>'mysql'<% } %><% if(filters.mariasql){ %>'mariadb' <% } %><% if(filters.sqlite){ %>'sqlite'<% } %>,
-    protocol:<% if(filters.pgsql){ %>'postgres'<% } %><% if(filters.mssql){ %>'mssql'<% } %><% if(filters.mysql){ %>'mysql'<% } %><% if(filters.mariasql){ %>'mariadb' <% } %><% if(filters.sqlite)  { %>'sqlite'<% } %>,
+    protocol:<% if(filters.pgsql){ %>'postgres'<% } %><% if(filters.mssql){ %>'mssql'<% } %><% if(filters.mysql){ %>'mysql'<% } %><% if(filters.mariasql){ %>'mariadb' <% } %><% if(filters.sqlite){ %>'sqlite'<% } %>,
     pool: {
       max: 5,
       min: 0,
       idle: 10000
-    }
+    },
+    database: '<%= _.slugify(appname) %>',
+    username: 'postgres',
+    password: 'root'
   },
 <% if(filters.facebookAuth) { %>
   facebook: {

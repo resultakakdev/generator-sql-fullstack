@@ -10,7 +10,7 @@ function <%= classedName %>(req){
 exports.index = function(req, res) {<% if (!filters.sql) { %>
   res.json([]);<% } %><% if (filters.sql) { %>
   <%= classedName %>(req)
-    .findAll()
+    .findAll({ where: {} })
     .then(function (<%= name %>s) {
       return res.status(200).json(<%= name %>s);
     })
