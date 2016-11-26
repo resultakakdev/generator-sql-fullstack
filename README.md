@@ -1,5 +1,5 @@
 # SQL Full-Stack Generator [![Build Status](https://travis-ci.org/tashrafy/generator-sql-fullstack.svg?branch=master)](http://travis-ci.org/tashrafy/generator-sql-fullstack) [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/tashrafy/generator-sql-fullstack)
-## This respository is no longer being maintained.  Use generator-angular-fullstack's latest version for SQL capabilities.
+## This respository is no longer being maintained.  Use [generator-angular-fullstack's](https://github.com/angular-fullstack/generator-angular-fullstack) latest version for SQL capabilities.
 
 Forked from [DaftMonk/generator-angular-fullstack](https://github.com/DaftMonk/generator-angular-fullstack)
 
